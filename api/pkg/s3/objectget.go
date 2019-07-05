@@ -1,4 +1,4 @@
-// Copyright 2019 The OpenSDS Authors.
+// Copyright (c) 2018 Huawei Technologies Co., Ltd. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,17 +16,16 @@ package s3
 
 import (
 	"bytes"
+	"github.com/opensds/multi-cloud/api/pkg/s3/datastore"
 	"net/http"
 	"strconv"
 	"strings"
-
-	"github.com/opensds/multi-cloud/api/pkg/s3/datastore"
 
 	"github.com/emicklei/go-restful"
 	"github.com/micro/go-log"
 
 	. "github.com/opensds/multi-cloud/s3/pkg/exception"
-	s3 "github.com/opensds/multi-cloud/s3/proto"
+	"github.com/opensds/multi-cloud/s3/proto"
 	"golang.org/x/net/context"
 )
 

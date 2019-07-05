@@ -1,4 +1,4 @@
-// Copyright 2019 The OpenSDS Authors.
+// Copyright (c) 2018 Huawei Technologies Co., Ltd. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,13 +17,12 @@ package mongo
 import (
 	"errors"
 	"fmt"
-	"time"
-
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
 	"github.com/micro/go-log"
 	. "github.com/opensds/multi-cloud/api/pkg/filters/context"
 	. "github.com/opensds/multi-cloud/dataflow/pkg/model"
+	"time"
 )
 
 var adap = &adapter{}
@@ -202,20 +201,6 @@ func (ad *adapter) UnlockSched(planId string) int {
 	defer ss.Close()
 
 	return unlock(ss, planId)
-}
-
-func (ad *adapter) LockBucketLifecycleSched(bucketName string) int {
-	ss := ad.s.Copy()
-	defer ss.Close()
-
-	return lock(ss, bucketName, 300) //One schedule is supposed to be finished in 300 seconds
-}
-
-func (ad *adapter) UnlockBucketLifecycleSched(bucketName string) int {
-	ss := ad.s.Copy()
-	defer ss.Close()
-
-	return unlock(ss, bucketName)
 }
 
 func (ad *adapter) CreatePolicy(ctx *Context, pol *Policy) (*Policy, error) {

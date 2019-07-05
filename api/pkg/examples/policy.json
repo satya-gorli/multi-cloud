@@ -30,9 +30,5 @@
   "object:put": "",
   "object:delete": "",
   "routbucket:put": "",
-  "routobject:put": "",
-  "storageclass:get":"",
-  "bucketlifecycle:put": "",
-  "bucketlifecycle:get": "",
-  "bucketlifecycle:delete": ""
+  "routobject:put": ""
 }

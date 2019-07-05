@@ -3,16 +3,15 @@ package s3
 import (
 	"context"
 	"encoding/xml"
+	"github.com/opensds/multi-cloud/api/pkg/s3/datastore"
 	"net/http"
 	"time"
-
-	"github.com/opensds/multi-cloud/api/pkg/s3/datastore"
 
 	"github.com/emicklei/go-restful"
 	"github.com/micro/go-log"
 	. "github.com/opensds/multi-cloud/s3/pkg/exception"
 	"github.com/opensds/multi-cloud/s3/pkg/model"
-	s3 "github.com/opensds/multi-cloud/s3/proto"
+	"github.com/opensds/multi-cloud/s3/proto"
 )
 
 func (s *APIService) CompleteMultipartUpload(request *restful.Request, response *restful.Response) {
@@ -55,9 +54,11 @@ func (s *APIService) CompleteMultipartUpload(request *restful.Request, response 
 		return
 	}
 
-	// delete multipart upload record, if delete failed, it will be cleaned by lifecycle management
-	record := s3.MultipartUploadRecord{ObjectKey: objectKey, Bucket: bucketName, UploadId: UploadId}
-	s.s3Client.DeleteUploadRecord(context.Background(), &record)
+	//_, s3err = client.GetObjectInfo(bucketName, objectKey, ctx)
+	if s3err != NoError {
+		response.WriteError(http.StatusInternalServerError, s3err.Error())
+		return
+	}
 
 	objectMD.Partions = nil
 	objectMD.LastModified = time.Now().Unix()

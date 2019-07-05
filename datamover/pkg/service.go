@@ -1,4 +1,4 @@
-// Copyright 2019 The OpenSDS Authors.
+// Copyright (c) 2018 Huawei Technologies Co., Ltd. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,13 +15,12 @@
 package pkg
 
 import (
-	"os"
-	"strings"
-
 	"github.com/go-log/log"
 	"github.com/opensds/multi-cloud/dataflow/pkg/utils"
 	"github.com/opensds/multi-cloud/datamover/pkg/db"
 	"github.com/opensds/multi-cloud/datamover/pkg/kafka"
+	"os"
+	"strings"
 )
 
 var dataMoverGroup = "datamover"
@@ -36,20 +35,20 @@ func InitDatamoverService() error {
 	for i := 0; i < len(config); i++ {
 		addr := strings.Split(config[i], "//")
 		if len(addr) != 2 {
-			log.Log("invalid addr:", config[i])
+			log.Log("Invalid addr:", config[i])
 		} else {
 			addrs = append(addrs, addr[1])
 		}
 	}
-	topics := []string{"migration", "lifecycle"}
+	topics := []string{"migration"}
 	err := kafka.Init(addrs, dataMoverGroup, topics)
 	if err != nil {
-		log.Log("init kafka consumer failed.")
+		log.Log("Init kafka consumer failed.")
 		return nil
 	}
 	go kafka.LoopConsume()
 
 	datamoverID := os.Getenv("HOSTNAME")
-	log.Logf("init datamover[ID#%s] finished.\n", datamoverID)
+	log.Logf("Init datamover[ID#%s] finished.\n", datamoverID)
 	return nil
 }

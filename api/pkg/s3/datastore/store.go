@@ -1,4 +1,4 @@
-// Copyright 2019 The OpenSDS Authors.
+// Copyright (c) 2018 Huawei Technologies Co., Ltd. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,16 +16,15 @@ package datastore
 
 import (
 	"context"
-	"io"
-
 	"github.com/opensds/multi-cloud/api/pkg/s3/datastore/gcp"
+	"io"
 
 	"github.com/opensds/multi-cloud/api/pkg/s3/datastore/ceph"
 
 	"github.com/opensds/multi-cloud/api/pkg/s3/datastore/aws"
 	"github.com/opensds/multi-cloud/api/pkg/s3/datastore/azure"
 	"github.com/opensds/multi-cloud/api/pkg/s3/datastore/hws"
-	ibmcos "github.com/opensds/multi-cloud/api/pkg/s3/datastore/ibm"
+	"github.com/opensds/multi-cloud/api/pkg/s3/datastore/ibm"
 	backendpb "github.com/opensds/multi-cloud/backend/proto"
 	. "github.com/opensds/multi-cloud/s3/pkg/exception"
 	"github.com/opensds/multi-cloud/s3/pkg/model"

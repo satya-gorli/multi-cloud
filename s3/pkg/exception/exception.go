@@ -1,4 +1,4 @@
-// Copyright 2019 The OpenSDS Authors.
+// Copyright (c) 2018 Huawei Technologies Co., Ltd. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -42,6 +42,4 @@ var NoSuchType = S3Error{Code: 404, Description: "The specified backend type doe
 var BucketDeleteError = S3Error{Code: 500, Description: "The bucket can not be deleted. please delete object first"}
 var BackendDeleteError = S3Error{Code: 500, Description: "The backend can not be deleted. please delete bucket first"}
 
-var InvalidQueryParameter = S3Error{Code:400, Description:"invalid query parameter"}
-var InvalidStorageClass = S3Error{Code: 400, Description: "the storage class you specified is not valid"}
-var BadRequest = S3Error{Code:400, Description:"request is invalid"}
+var InvalidQueryParameter = S3Error{Code:400, Description:"Invalid query parameter"}

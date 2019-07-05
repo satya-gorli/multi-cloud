@@ -1,4 +1,4 @@
-// Copyright 2019 The OpenSDS Authors.
+// Copyright (c) 2018 Huawei Technologies Co., Ltd. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@ package main
 
 import (
 	"fmt"
-
 	"github.com/micro/go-log"
 	"github.com/micro/go-micro"
 	datamover "github.com/opensds/multi-cloud/datamover/pkg"

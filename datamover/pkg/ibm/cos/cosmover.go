@@ -1,5 +1,3 @@
-// Copyright 2019 The OpenSDS Authors.
-//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -15,7 +13,7 @@
 package ibmcosmover
 
 import (
-	s3mover "github.com/opensds/multi-cloud/datamover/pkg/amazon/s3"
+	"github.com/opensds/multi-cloud/datamover/pkg/amazon/s3"
 )
 
 type IBMCOSMover = s3mover.S3Mover

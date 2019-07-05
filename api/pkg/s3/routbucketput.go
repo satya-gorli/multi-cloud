@@ -1,4 +1,4 @@
-// Copyright 2019 The OpenSDS Authors.
+// Copyright (c) 2018 Huawei Technologies Co., Ltd. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ func (s *APIService) RouteBucketPut(request *restful.Request, response *restful.
 		//TODO
 
 	} else if IsQuery(request, "lifecycle") {
-		s.BucketLifecyclePut(request, response)
+		//TODO
 
 	} else {
 		s.BucketPut(request, response)
